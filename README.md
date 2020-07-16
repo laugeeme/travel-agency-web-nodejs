@@ -5,5 +5,5 @@ Based on the [Udemy Course](https://www.udemy.com/course/javascript-moderno-guia
 - Using PUG as a Template Engine and Bootstrap
 
 <div align="center">
-       <img src="./src/assets/images/web.png" width="600px"</img> 
+       <img src="./public/img/web.png" width="600px"</img> 
 </div>
