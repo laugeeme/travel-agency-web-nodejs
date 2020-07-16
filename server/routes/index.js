@@ -21,10 +21,20 @@ module.exports = function () {
       .then((trips) =>
         res.render('viajes', {
           page: 'Próximos Viajes',
-          trips
+          trips,
         })
       )
       .catch((error) => console.log(error));
+  });
+
+  router.get('/viajes/:id', async (req, res) => {
+    await Trip.findByPk(req.params.id) //findByPk = findById
+      .then((trip) =>
+        res.render('viaje', {
+          trip,
+        })
+      )
+      .cath((error) => console.log(error));
   });
 
   return router;
