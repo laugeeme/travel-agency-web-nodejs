@@ -15,6 +15,9 @@ app.set('view engine', 'pug');
 //Add views
 app.set('views', path.join(__dirname, './views'));
 
+//Load PUBLIC (static file)
+app.use(express.static('public'));
+
 //Load routes
 app.use('/', routes());
 
