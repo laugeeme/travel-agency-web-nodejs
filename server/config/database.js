@@ -1,7 +1,7 @@
 'use strict';
 const Sequelize = require('sequelize');
 
-module.exports = new Sequelize('agenciadeviajes', 'root', '', {
+module.exports = new Sequelize('travelagency', 'root', '', {
   host: '127.0.0.1',
   port: '3306',
   dialect: 'mysql',

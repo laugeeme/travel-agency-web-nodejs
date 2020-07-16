@@ -8,11 +8,12 @@ const routes = require('./routes');
 
 const configs = require('./config');
 
-const db = require('./config/database');
 
-db.authenticate()
+
+//Test conection to database
+/* db.authenticate()
   .then(() => console.log('DB conectada'))
-  .catch((error) => console.log(error));
+  .catch((error) => console.log(error)); */
 
 //Configure Express
 const app = express();
