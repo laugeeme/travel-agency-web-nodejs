@@ -5,11 +5,11 @@ const router = express.Router();
 //here we can put all the routes form our proyect
 module.exports = function () {
   router.get('/', (req, res) => {
-    res.send('Hola Mundo en NodeJS');
+    res.render('index');
   });
 
   router.get('/nosotros', (req, res) => {
-    res.send('Nosotros');
+    res.render('nosotros');
   });
 
   return router;

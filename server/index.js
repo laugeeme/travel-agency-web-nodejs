@@ -13,7 +13,7 @@ const app = express();
 app.set('view engine', 'pug');
 
 //Add views
-app.set.set('views', path.join(__dirname, './views'));
+app.set('views', path.join(__dirname, './views'));
 
 //Load routes
 app.use('/', routes());
