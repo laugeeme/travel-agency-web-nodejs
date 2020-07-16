@@ -9,7 +9,9 @@ module.exports = function () {
   });
 
   router.get('/nosotros', (req, res) => {
-    res.render('nosotros');
+    res.render('nosotros', {
+      page: 'Sobre nosotros' //Create new variable to use in nosotros/index.pug
+    });
   });
 
   return router;

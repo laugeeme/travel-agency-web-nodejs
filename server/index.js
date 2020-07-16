@@ -22,7 +22,7 @@ app.use(express.static('public'));
 app.use((req, res, next) => {
   //Create new date
   const date = new Date();
-  res.locals.dateNow = date.getFullYear(); //res.locals as a global variables
+  res.locals.dateNow = date.getFullYear(); //We use res.locals to do global variables
   return next();
 });
 
