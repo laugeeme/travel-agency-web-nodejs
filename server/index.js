@@ -6,6 +6,12 @@ const express = require('express');
 const path = require('path');
 const routes = require('./routes');
 
+
+const configs = require('./config');
+
+
+
+
 //Configure Express
 const app = express();
 
@@ -17,6 +23,14 @@ app.set('views', path.join(__dirname, './views'));
 
 //Load PUBLIC (static file)
 app.use(express.static('public'));
+
+
+//Validate if we are in development or production
+const config = configs[app.get('env')];
+
+//Create variable for site web
+app.locals.title = config.websiteName;
+
 
 //Displays the current date
 app.use((req, res, next) => {
