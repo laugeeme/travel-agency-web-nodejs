@@ -14,5 +14,11 @@ module.exports = function () {
     });
   });
 
+  router.get('/viajes', (req, res) => {
+    res.render('viajes', {
+      page: 'Próximos viajes' //Create new variable to use in nosotros/index.pug
+    });
+  });
+
   return router;
 };
