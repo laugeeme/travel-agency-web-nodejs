@@ -1,5 +1,5 @@
 'use strict';
-const express = require();
+const express = require('express');
 const router = express.Router();
 
 //here we can put all the routes form our proyect
