@@ -8,9 +8,17 @@ const Testimony = require('../models/Testimonials');
 //here we can put all the routes form our proyect
 module.exports = function () {
   router.get('/', (req, res) => {
-    res.render('index', {
-      clase: 'home'
-    });
+    Trip.findAll({
+      limit: 3
+    })
+    .then((trips) =>
+      res.render('index', {
+        page: 'Próximos Viajes',
+        trips,
+        clase: 'home'
+      })
+    )
+    .catch((error) => console.log(error));
   });
 
   router.get('/nosotros', (req, res) => {
