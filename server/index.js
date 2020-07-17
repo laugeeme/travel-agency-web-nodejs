@@ -10,9 +10,7 @@ const routes = require('./routes');
 
 const configs = require('./config');
 
-
-
-//Test conection to database
+//Test connection to database
 /* db.authenticate()
   .then(() => console.log('DB conectada'))
   .catch((error) => console.log(error)); */
@@ -45,7 +43,7 @@ app.use((req, res, next) => {
 });
 
 //execute bodyParser
-app.use(bodyParser.urlencoded({extended:true}));
+app.use(bodyParser.urlencoded({ extended: true }));
 
 //Load routes
 app.use('/', routes());

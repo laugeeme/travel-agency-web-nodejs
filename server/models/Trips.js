@@ -1,7 +1,7 @@
 'use strict';
 const Sequelize = require('sequelize');
 
-//import conexion
+//import connection
 const db = require('../config/database');
 
 //define model

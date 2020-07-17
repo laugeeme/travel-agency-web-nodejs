@@ -1,7 +1,7 @@
 'use strict';
 const Sequelize = require('sequelize');
 
-//import conexion
+//import connection to database
 const db = require('../config/database');
 
 const Testimony = db.define('testimonials', {
