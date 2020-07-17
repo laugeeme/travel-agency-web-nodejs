@@ -5,6 +5,8 @@ const router = express.Router();
 const Trip = require('../models/Trips');
 const Testimony = require('../models/Testimonials');
 
+const nosotrosController = require('../controllers/nosotrosController');
+
 //here we can put all the routes form our proyect
 module.exports = function () {
   router.get('/', (req, res) => {
@@ -33,11 +35,7 @@ module.exports = function () {
     .catch((error) => console.log(error));
   });
 
-  router.get('/nosotros', (req, res) => {
-    res.render('nosotros', {
-      page: 'Sobre nosotros', //Create new variable to use in nosotros/index.pug
-    });
-  });
+  router.get('/nosotros', nosotrosController.infoNosotros);
 
   router.get('/viajes', (req, res) => {
     Trip.findAll()
