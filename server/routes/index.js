@@ -46,7 +46,7 @@ module.exports = function () {
   //when form is completed
   router.post('/testimonios', (req, res) => {
     //validate all fields are completed
-    let {name, email, message} = req
+    let {name, email, message} = req.body;
 
     let errors = [];
     if(!name){
@@ -62,6 +62,12 @@ module.exports = function () {
     //check errors
     if(errors.length > 0){
       //show view with errors
+      res.render('testimonios', {
+        errors, 
+        name,
+        email,
+        message
+      })
 
     } else {
       //save in database
