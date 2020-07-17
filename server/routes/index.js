@@ -5,36 +5,15 @@ const router = express.Router();
 const Trip = require('../models/Trips');
 const Testimony = require('../models/Testimonials');
 
+
+//Controllers
 const nosotrosController = require('../controllers/nosotrosController');
+const homeController = require('../controllers/homeController');
+
 
 //here we can put all the routes form our proyect
 module.exports = function () {
-  router.get('/', (req, res) => {
-    const promises =[];
-
-    promises.push(Trip.findAll({
-      limit: 3
-    }))
-
-    promises.push(Testimony.findAll({
-      limit:3
-    }))
-
-    //pass promise and execute
-    const result = Promise.all(promises);
-
-    result.then((result) =>
-      res.render('index', {
-        page: 'Próximos Viajes',
-        clase: 'home',
-        trips: result[0],
-        testimonials: result[1]
-        
-      })
-    )
-    .catch((error) => console.log(error));
-  });
-
+  router.get('/', homeController.queriesHomepage);
   router.get('/nosotros', nosotrosController.infoNosotros);
 
   router.get('/viajes', (req, res) => {
