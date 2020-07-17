@@ -1,0 +1,22 @@
+extends ../layout/index
+block content
+    main.container.mt-5
+        h1.text-center.mb-5 #{page}
+
+
+        .row
+            .col-md-12
+
+                .row.justify-content-center
+                    .col-md-8
+                        form
+                            .form-group
+                                label(for="name") Nombre
+                                input(id="name", class="form-control", type="text", placeholder="Tu Nombre", name="name")
+                            .form-group
+                                label(for="email") Email
+                                input(id="email", class="form-control", type="email", placeholder="Tu Email" name="email")
+                            .form-group
+                                label(for="message") Mensaje
+                                textarea#mensaje(class="form-control", name="message", rows="3", placeholder="Tu mensaje")
+                            input.btn.btn-success.btn-block(type="submit", value="Añadir")

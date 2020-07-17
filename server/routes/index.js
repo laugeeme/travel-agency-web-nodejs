@@ -37,5 +37,11 @@ module.exports = function () {
       .cath((error) => console.log(error));
   });
 
+  router.get('/testimonios', (req, res) => {
+    res.render('testimonios', {
+      page: 'Testimonios', 
+    });
+  });
+
   return router;
 };
