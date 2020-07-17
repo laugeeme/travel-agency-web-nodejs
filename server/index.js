@@ -4,6 +4,8 @@
 //Import Express
 const express = require('express');
 const path = require('path');
+const bodyParser = require('body-parser');
+
 const routes = require('./routes');
 
 const configs = require('./config');
@@ -40,6 +42,9 @@ app.use((req, res, next) => {
   res.locals.dateNow = date.getFullYear(); //We use res.locals to do global variables
   return next();
 });
+
+//execute bodyParser
+app.use(bodyParser.urlencoded({extended:true}));
 
 //Load routes
 app.use('/', routes());

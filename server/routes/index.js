@@ -43,5 +43,31 @@ module.exports = function () {
     });
   });
 
+  //when form is completed
+  router.post('/testimonios', (req, res) => {
+    //validate all fields are completed
+    let {name, email, message} = req
+
+    let errors = [];
+    if(!name){
+      errors.push({'message': 'Agrega tu Nombre'})
+    }
+    if(!email){
+      errors.push({'message': 'Agrega tu Email'})
+    }
+    if(!message){
+      errors.push({'message': 'Agrega tu Mensaje'})
+    }
+
+    //check errors
+    if(errors.length > 0){
+      //show view with errors
+
+    } else {
+      //save in database
+    }
+
+  })
+
   return router;
 };
