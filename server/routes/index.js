@@ -3,6 +3,7 @@ const express = require('express');
 const router = express.Router();
 
 const Trip = require('../models/Trips');
+const Testimony = require('../models/Testimonials');
 
 //here we can put all the routes form our proyect
 module.exports = function () {
@@ -39,41 +40,46 @@ module.exports = function () {
 
   router.get('/testimonios', (req, res) => {
     res.render('testimonios', {
-      page: 'Testimonios', 
+      page: 'Testimonios',
     });
   });
 
   //when form is completed
   router.post('/testimonios', (req, res) => {
     //validate all fields are completed
-    let {name, email, message} = req.body;
+    let { name, email, message } = req.body;
 
     let errors = [];
-    if(!name){
-      errors.push({'message': 'Añade tu Nombre'})
+    if (!name) {
+      errors.push({ message: 'Añade tu Nombre' });
     }
-    if(!email){
-      errors.push({'message': 'Añade tu Email'})
+    if (!email) {
+      errors.push({ message: 'Añade tu Email' });
     }
-    if(!message){
-      errors.push({'message': 'Añade tu Mensaje'})
+    if (!message) {
+      errors.push({ message: 'Añade tu Mensaje' });
     }
 
     //check errors
-    if(errors.length > 0){
+    if (errors.length > 0) {
       //show view with errors
       res.render('testimonios', {
-        errors, 
+        errors,
         name,
         email,
-        message
-      })
-
+        message,
+      });
     } else {
       //save in database
+      Testimony.create({
+        name,
+        email,
+        message,
+      })
+        .then((testimony) => res.redirect('/testimonios'))
+        .catch(error => console.log(error));
     }
-
-  })
+  });
 
   return router;
 };
