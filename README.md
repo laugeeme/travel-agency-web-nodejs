@@ -7,3 +7,7 @@ Based on the [Udemy Course](https://www.udemy.com/course/javascript-moderno-guia
 <div align="center">
        <img src="./public/img/web.png" width="600px"</img> 
 </div>
+
+<div align="center">
+       <img src="./public/img/web1.png" width="600px"</img> 
+</div>
