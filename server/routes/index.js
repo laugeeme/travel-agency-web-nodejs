@@ -8,14 +8,26 @@ const Testimony = require('../models/Testimonials');
 //here we can put all the routes form our proyect
 module.exports = function () {
   router.get('/', (req, res) => {
-    Trip.findAll({
+    const promises =[];
+
+    promises.push(Trip.findAll({
       limit: 3
-    })
-    .then((trips) =>
+    }))
+
+    promises.push(Testimony.findAll({
+      limit:3
+    }))
+
+    //pass promise and execute
+    const result = Promise.all(promises);
+
+    result.then((result) =>
       res.render('index', {
         page: 'Próximos Viajes',
-        trips,
-        clase: 'home'
+        clase: 'home',
+        trips: result[0],
+        testimonials: result[1]
+        
       })
     )
     .catch((error) => console.log(error));
