@@ -39,9 +39,11 @@ module.exports = function () {
   });
 
   router.get('/testimonios', (req, res) => {
-    res.render('testimonios', {
+    Testimony.findAll()
+    .then(testimonials =>     res.render('testimonios', {
       page: 'Testimonios',
-    });
+      testimonials
+    }))
   });
 
   //when form is completed
