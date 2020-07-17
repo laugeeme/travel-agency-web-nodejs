@@ -35,11 +35,12 @@ const config = configs[app.get('env')];
 //Create variable for site web
 app.locals.title = config.websiteName;
 
-//Displays the current date
+//Displays the current date and generate the route
 app.use((req, res, next) => {
   //Create new date
   const date = new Date();
   res.locals.dateNow = date.getFullYear(); //We use res.locals to do global variables
+  res.locals.route = req.path;
   return next();
 });
 
