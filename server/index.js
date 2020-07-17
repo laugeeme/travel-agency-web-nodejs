@@ -5,13 +5,14 @@
 const express = require('express');
 const path = require('path');
 const bodyParser = require('body-parser');
-
 const routes = require('./routes');
-
 const configs = require('./config');
 
+require('dotenv').config({ path: 'variables.env' });
+
 //Test connection to database
-/* db.authenticate()
+/* const db =require('./config/database');
+ db.authenticate()
   .then(() => console.log('DB conectada'))
   .catch((error) => console.log(error)); */
 
@@ -48,4 +49,10 @@ app.use(bodyParser.urlencoded({ extended: true }));
 //Load routes
 app.use('/', routes());
 
-app.listen(3000); //Port
+/**Port and host for the app */
+const host = process.env.HOST || '0.0.0.0';
+const port = process.env.PORT || 3000;
+
+app.listen(port, host, () => {
+  console.log('El servidor está funcionando');
+}); //Port
