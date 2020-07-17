@@ -13,7 +13,7 @@ exports.queriesHomepage = (req, res) => {
 
   promises.push(
     Testimony.findAll({
-      limit: 3, 
+      limit: 3,
     })
   );
 

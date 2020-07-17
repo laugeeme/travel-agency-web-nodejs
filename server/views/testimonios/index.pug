@@ -6,10 +6,7 @@ block content
 
         .row
             .col-md-12
-                include ../layout/partials/testimonials
-               
-
-
+                include ../layout/partials/testimonials              
             .col-md-12
                 h2.text-center Añade un testimonio
                 if(errors)
@@ -18,14 +15,14 @@ block content
 
                 .row.justify-content-center
                     .col-md-8
-                        form(action='/testimonios', method="POST")
+                        form(action='/testimonios' method="POST")
                             .form-group
                                 label(for="name") Nombre
-                                input(id="name", class="form-control", type="text", placeholder="Tu Nombre", name="name", value=name)
+                                input(id="name" class="form-control" type="text" placeholder="Tu Nombre" name="name", value=name)
                             .form-group
                                 label(for="email") Email
-                                input(id="email", class="form-control", type="email", placeholder="Tu Email" name="email", value=email)
+                                input(id="email" class="form-control" type="email" placeholder="Tu Email" name="email", value=email)
                             .form-group
                                 label(for="message") Mensaje
-                                textarea#mensaje(class="form-control", name="message", rows="3", placeholder="Tu mensaje")=message
-                            input.btn.btn-success.btn-block(type="submit", value="Añadir")
+                                textarea#mensaje(class="form-control" name="message" rows="3" placeholder="Tu mensaje")=message
+                            input.btn.btn-success.btn-block(type="submit" value="Añadir")
