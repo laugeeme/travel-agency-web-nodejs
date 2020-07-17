@@ -2,16 +2,15 @@
 
 const Testimony = require('../models/Testimonials');
 
-exports.showTestimonials = (req, res) => {
-  Testimony.findAll().then((testimonials) =>
-    res.render('testimonios', {
-      page: 'Testimonios',
-      testimonials,
-    })
-  );
+exports.showTestimonials = async (req, res) => {
+  const testimonials = await Testimony.findAll();
+  res.render('testimonios', {
+    page: 'Testimonios',
+    testimonials,
+  });
 };
 
-exports.addTestimonials = (req, res) => {
+exports.addTestimonials = async (req, res) => {
   //validate all fields are completed
   let { name, email, message } = req.body;
 
@@ -29,11 +28,14 @@ exports.addTestimonials = (req, res) => {
   //check errors
   if (errors.length > 0) {
     //show view with errors
+    const testimoniales = await Testimony.findAll();
     res.render('testimonios', {
       errors,
       name,
       email,
       message,
+      page: 'Testimonios',
+      testimoniales,
     });
   } else {
     //save in database
