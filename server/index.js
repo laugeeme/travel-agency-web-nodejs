@@ -50,8 +50,8 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use('/', routes());
 
 /**Port and host for the app */
-const host = process.env.BD_HOST || '0.0.0.0';
-const port = process.env.BD_PORT || 3000;
+const host = process.env.HOST || '0.0.0.0';
+const port = process.env.PORT || 3000;
 
 app.listen(port, host, () => {
   console.log('El servidor está funcionando');
