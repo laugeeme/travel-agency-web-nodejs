@@ -50,13 +50,13 @@ module.exports = function () {
 
     let errors = [];
     if(!name){
-      errors.push({'message': 'Agrega tu Nombre'})
+      errors.push({'message': 'Añade tu Nombre'})
     }
     if(!email){
-      errors.push({'message': 'Agrega tu Email'})
+      errors.push({'message': 'Añade tu Email'})
     }
     if(!message){
-      errors.push({'message': 'Agrega tu Mensaje'})
+      errors.push({'message': 'Añade tu Mensaje'})
     }
 
     //check errors
