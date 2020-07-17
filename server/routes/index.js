@@ -8,7 +8,9 @@ const Testimony = require('../models/Testimonials');
 //here we can put all the routes form our proyect
 module.exports = function () {
   router.get('/', (req, res) => {
-    res.render('index');
+    res.render('index', {
+      clase: 'home'
+    });
   });
 
   router.get('/nosotros', (req, res) => {
